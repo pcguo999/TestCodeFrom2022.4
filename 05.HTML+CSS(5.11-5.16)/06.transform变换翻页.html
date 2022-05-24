@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>翻面</title>
+    <style type="text/css">
+        .transform变换 img{
+            width: 100px;
+            height: 100px;
+            transform-style :preserve-3d;
+            /*transform-style flat | preserve-3d 设置盒子是否按3d空间显示*/
+        }
+        .transform变换:hover img{
+            width: 100px;
+            height: 150px;
+            transform: scale(3.0),rotateX(45deg),perspective(10);
+            /*ranslate(x,y) 设置盒子位移*/
+            /*scale(x,y) 设置盒子缩放*/
+            /*rotate(deg) 设置盒子旋转*/
+            /*skew(x-angle,y-angle) 设置盒子斜切*/
+            /*perspective 设置透视距离*/  
+            /*translateX、translateY、translateZ 设置三维移动*/
+            /*rotateX、rotateY、rotateZ 设置三维旋转*/
+            /*scaleX、scaleY、scaleZ 设置三维缩放*/
+            /*tranform-origin 设置变形的中心点*/
+            /*backface-visibility 设置盒子背面是否可见    */
+        }
+        .box{
+            width:300px;
+            height:272px;
+            margin:50px auto 0;
+            transform-style:preserve-3d;
+            position:relative;            
+        }
+        .box img{
+            width:300px;
+            height:272px;
+            position:absolute;
+            background-color:cyan;
+            left:0;
+            top:0;
+            transform:perspective(800px) rotateY(0deg);
+            backface-visibility:hidden;
+            transition:all 500ms ease;
+        }
+        .box .back_info{
+            width:300px;
+            height:272px;
+            text-align:center;
+            line-height:272px;
+            background-color:gold;
+            position:absolute;
+            left:0;
+            top:0;
+            transform:rotateY(180deg);
+            backface-visibility:hidden;
+            transition:all 500ms ease;            
+        }
+        .box:hover img{
+            transform:perspective(800px) rotateY(180deg);
+        }
+        .box:hover .back_info{
+            transform:perspective(800px) rotateY(0deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">        
+        <img src="image/1.jpg">
+        <div class="back_info">背面文字说明</div>
+    </div>
+</body>
+</html>

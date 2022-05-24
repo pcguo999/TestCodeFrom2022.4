@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            padding-top: 10px;
+            width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        caption{font-size: 20px;margin-bottom: 10px;}
+        table{width: 400px;}
+        table,td,th{
+            margin: 0 auto;
+            text-align: center;
+            border-collapse: collapse;
+            border: 0.5px solid #ccc;
+        }
+        tr{
+            height: 40px;
+        }
+        .student:hover{
+            background-color:#ddd;
+        }
+        table tr:nth-child(1){
+            background-color:#ddd;
+        }
+        table tr:nth-child(1){
+            background-color:#eee;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let student=[
+            {name:'张三',age:20,gender:'男'},
+            {name:'李四',age:21,gender:'女'},
+            {name:'王五',age:19,gender:'男'},
+            {name:'钱六',age:22,gender:'男'}
+        ]
+        document.write(`
+        <div>
+            <table>
+                <caption>学生列表</caption>
+                <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>性别</th>
+                </tr>
+        `)
+        for(let i=0;i<student.length;i++)
+        {
+            document.write(`<tr style:"hover:background">
+                <td>${i+1}</td>
+            `)
+            for(let k in student[i])
+                document.write(`<td>${student[i][k]}</td>`)
+            document.write(`</tr>`)
+        }
+        document.write(`
+            </table>
+        </div>
+        `)
+    </script>  
+    <script type="text/javascript">
+        window.onload = function(){
+            var oDiv = document.getElementById('div1');
+            function timeleft(){
+                var now = new Date();
+                var future = new Date(2022,5,20,24,0,0);
+                var lefts = parseInt((future-now)/1000);
+                var day = parseInt(lefts/86400);
+                var hour = parseInt(lefts%86400/3600);
+                var min = parseInt(lefts%86400%3600/60);
+                var sec = lefts%60;
+                str = '距离2022年5月31日晚24点还剩下'+day+'天'+hour+'时'+min+'分'+sec+'秒';
+                oDiv.innerHTML = str; 
+            }
+            timeleft();
+            setInterval(timeleft,5);        
+        }
+    
+    </script>
+    <div id="div1"></div>  
+</body>
+</html>

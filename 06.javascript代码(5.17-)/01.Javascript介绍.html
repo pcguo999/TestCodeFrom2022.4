@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            margin: 0 auto;
+            text-align: center;
+             /* 合并:表示表格的两边框合并为一条。 */
+            border-collapse: collapse;
+        }
+
+        table,th,td{
+            border: 1px solid black; 
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <script>
+        // document.write('要输出的内容')
+        // alert('Hello World')
+        // console.log('console.log要输入的内容')
+        // prompt('请输入姓名：')
+
+        // let age=19
+        // age=prompt('请输入年龄')
+        // document.write('你的年龄为：'+age)
+        // let name='张三'
+        // document.write(`我的姓名：${name}`)
+        // document.write(`<span style='color:red'>Hello</span>`)
+        // x=1
+        // document.write(typeof(x))
+        // x='10'
+        // document.write(typeof(+x))
+        // document.write(+x + 10)
+        // document.write(parseInt(`100px`))
+        //100
+        // let age=18
+        // document.write(String(age))
+        // document.write(age.toString())
+        // //转换成二进制
+        // document.write(age.toString(2))
+    </script> -->
+<!-- <script>
+    //1.输入数据
+    let name = prompt('请输入名称：')
+    let price = +prompt('请输入价格：')//转换成数字类型
+    let num = +prompt('请输入数量：')
+    let address = prompt('请输入收货地址：')
+    //计算总价
+    let total=price * num
+    //渲染表格 填充数据
+    document.write(`
+    <table>
+        <tr>
+            <th colspan="5">订单付款确认页面</th>
+        </tr>
+        <tr>
+            <td>商品名</td>
+            <td>商品价格</td>
+            <td>商品数量</td>
+            <td>总价</td>
+            <td>收获地址</td>
+        </tr>
+        <tr>
+            <td>${name}</td>
+            <td>${price}元</td>
+            <td>${num}个</td>
+            <td>${total}元</td>
+            <td>${address}</td>
+        </tr>
+    </table>
+    `)
+</script>   -->
+<script>
+    // function sum(a,b)
+    // {
+    //     return a+b
+    // }
+    // let a=[]
+    // for(let i=0;i<4;i++)
+    //     a.push(+prompt(`请输入a[${i+1}]的数据：`))
+    // let b=+prompt('请输入b的值')
+    // for(let i=0;i<4;i++)
+    //     a[i]=sum(a[i],b)
+    // document.write(`数组a每个元素都加b得`)
+
+    //获取数组最大值和最小值
+    // function ManAndMin(a)
+    // {
+    //     let max,min
+    //     if(a.length==1)
+    //     {
+    //         max=min=a[0]
+    //     }
+    //     else if(a.length>1)
+    //     {
+            
+    //         if(a[0]>a[1])
+    //         {
+    //             max=a[0]
+    //             min=a[1]
+    //         }
+    //         else
+    //         {
+    //             max=a[1]
+    //             min=a[0]
+    //         }
+    //         if(a.length>2)
+    //             for(let i=2;i<a.length;i++)
+    //             {
+    //                 if(max<a[i])
+    //                     max=a[i]
+    //                 if(min>a[i])
+    //                     min=a[i]
+    //             }
+    //     }
+    //     return [max,min] 
+    // }
+    // let a=[1,3,5,7,9,2,4,6,8]
+    // let b=ManAndMin(a)
+    // alert(`max=${b[0]},min=${b[1]}`)
+
+    // 对象
+    let person={
+        name:'张三',
+        age:20,
+        sex:'男',
+        goRun: function(address){
+            document.write(`${this.name}去${address}跑步`)
+        }
+    }
+    // let address=prompt('请输入地址：')
+    // person.goRun(address)
+    person.id=123
+    // delete person.age
+    console.log(person);
+    for(let k in person)
+        document.write(person[k])
+
+    //类
+    // class person{
+    //     name;
+    //     age;
+    //     gender;
+    //     //创建对象时会自动调用构造函数方法 constructor()。
+    //     constructor(name, url) {
+    //         this.name = name;
+    //         this.url = url;
+    //     }
+    //     goRun(address) {
+    //         document.write(`${this.name}去${address}跑步`)
+    //     }
+    // }
+    // let man = new person('张三' ,'20','男')
+    // document.write(man.name)
+    // man.goRun('公园')
+</script>
+<p></p>
+<p></p>
+</body>
+</html>

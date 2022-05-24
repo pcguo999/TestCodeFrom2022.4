@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+	/*1、@keyframes 定义关键帧动画
+	2、animation-name 动画名称
+	3、animation-duration 动画时间
+	4、animation-timing-function 动画曲线 linear(匀速)|ease(缓冲)|steps(步数)
+	5、animation-delay 动画延迟
+	6、animation-iteration-count 动画播放次数 n|infinite
+	7、animation-direction 动画结束后是否反向还原 normal|alternate
+	8、animation-play-state 动画状态 paused(停止)|running(运动)
+	9、animation-fill-mode 动画前后的状态 none(缺省)|forwards(结束时停留在最后一帧)|backwards(开始时停留在定义的开始帧)|both(前后都应用)
+	10、animation:name duration timing-function delay iteration-count direction;同时设置多个属性     */    
+	        .box{
+	            width:120px;
+	            height:180px;
+	            border:1px solid #ccc;            
+	            margin:50px auto 0;
+	            position:relative;
+	            overflow:hidden;            
+	        }
+
+	        .box img{
+	            display:block;
+	            width:960px;
+	            height:182px;
+	            position: absolute;
+	            left:0;
+	            top:0;
+	            animation:walking 1.0s steps(8) infinite;            
+	        }
+	        @keyframes walking{
+	            from{
+	                left:0px;
+	            }
+
+	            to{
+	                left:-960px;
+	            }
+	        }
+	</style>
+</head>
+<body>
+    <div class="box"><img src="image/1.jpg"></div>
+</body>
+</html>
+

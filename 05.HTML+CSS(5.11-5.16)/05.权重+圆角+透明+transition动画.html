@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		.translation动画 img {
+		    width: 100px;
+		    height: 100px;
+		    transition-property: all;
+	    	/*设置过渡的属性，比如：width height background-color，默认值为all*/
+		    transition-duration: 0.8s;
+		    /*设置过渡的时间，比如：1s 500ms*/
+		    transition-timing-function :ease;
+			/*设置过渡的运动方式，常用有 linear(匀速)|ease(缓冲运动)*/
+			/*transition-delay :0.1s*/
+			/*设置动画的延迟*/
+			/*transition: property duration timing-function delay 同时设置四个属性*/
+		}
+		.translation动画 img:hover{
+			/*权重计算： 10+1+10，结果为21；*/
+		  	width: 100px;
+		    height: 150px;
+		    background-color: rgba(0, 0, 0, 0.5);
+	    	/*前三个数值表示颜色，第四个数值表示颜色的透明度*/ 
+	    	border-radius: 30px; 
+	    	/*CSS3圆角,设置某一个角的圆角，比如设置左上角的圆角：
+			border-top-left-radius:30px 60px;*/ 
+	    	/*opacity:0.1;
+        	filter:alpha(opacity=10); */
+		}
+		</style>
+</head>
+<body>
+	<p>
+		权重的等级
+		可以把样式的应用方式分为几个等级，按照等级来计算权重
+			1、!important，加在样式属性值后，权重值为 10000
+			2、内联样式，如：style=””，权重值为1000
+			3、ID选择器，如：#content，权重值为100
+			4、类，伪类和属性选择器，如： content、:hover 权重值为10
+			5、标签选择器和伪元素选择器，如：div、p、:before 权重值为1
+	</p>
+	<div class="translation动画"><img src="./image/1.jpg"></div>
+
+</body>
+</html>

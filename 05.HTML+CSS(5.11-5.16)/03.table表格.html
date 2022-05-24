@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<!--
+1、<table>标签：声明一个表格，它的常用属性如下：
+    border属性 定义表格的边框，设置值是数值
+    cellpadding属性 定义单元格内容与边框的距离，设置值是数值
+    cellspacing属性 定义单元格与单元格之间的距离，设置值是数值
+    align属性 设置整体表格相对于浏览器窗口的水平对齐方式,设置值有：left | center | right
+2、<tr>标签：定义表格中的一行
+3、<td>和<th>标签：定义一行中的一个单元格，td代表普通单元格，th表示表头单元格，它们的常用属性如下：
+    align 设置单元格中内容的水平对齐方式,设置值有：left | center | right
+    valign 设置单元格中内容的垂直对齐方式 top | middle | bottom
+    colspan 设置单元格水平合并，设置值是数值
+    rowspan 设置单元格垂直合并，设置值是数值
+-->
+	<table border="1" cellpadding="2" cellspacing="0" align="center">
+		<tr>
+			<th colspan="3" align="center">简历</th>
+		</tr>
+		<tr>
+			<td>姓名</td><td>PCGuo</td>
+			<td rowspan="4"><img src="./image/1.jpg" width="80" height="100"></td>
+		</tr>
+		<tr>
+			<td>性别</td><td>男</td>
+		</tr>
+		<tr>
+			<td>民族</td><td>汉</td>
+		</tr>
+		<tr>
+			<td>出生日期</td><td>2022.2.2</td>
+		</tr>
+		<tr></tr>
+	</table>
+<!--
+	布局也可以叫做排版，它指的是把文字和图片等元素按照我们的意愿有机地排列在页面上，布局的方式分为两种：
+	1、table布局：通过table元素将页面空间划分成若干个单元格，将文字或图片等元素放入单元格中，隐藏表格的边框，从而实现布局。这种布局方式也叫传统布局，目前主要使用在EDM(广告邮件中的页面)中，主流的布局方式不用这种。
+	2、HTML+CSS布局(DIV+CSS)：主要通过CSS样式设置来布局文字或图片等元素，需要用到CSS盒子模型、盒子类型、CSS浮动、CSS定位、CSS背景图定位等知识来布局，它比传统布局要复杂，目前是主流的布局方式。
+-->
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柱状图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            margin: 0 auto;
+            display: flex;
+            width: 500px;
+            height: 300px;
+            border-left: 1px solid pink;
+            border-bottom: 1px solid pink;
+            /* 水平分布justify-content */
+            justify-content: space-around;
+            /* 垂直分布align-items */
+            align-items: flex-end;
+            /* 参数:flext-start：从水平或垂直方向的起点对齐
+                 flex-end：水平或垂直方向的终点对齐
+                 center：在水平或垂直方向上居中
+                 space-between：最左最右靠边，中间间距相等
+                 space-evenly：每个间距均匀分布
+                 space-around：每个项目的左右撑开距离相等 */
+            text-align: center;
+        }
+        .box div{
+            display: flex;
+            width: 50px;
+            background-color: pink;
+            /* 属性决定主轴的方向（即项目的排列方向） 
+                row（默认值）：主轴为水平方向，起点在左端。
+                row-reverse：主轴为水平方向，起点在右端。
+                column：主轴为垂直方向，起点在上沿。
+                column-reverse：主轴为垂直方向，起点在下沿。*/
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .box div span{
+            margin-top: -20px;
+        }
+        .box div h4{
+            margin-bottom: -35px;
+            width: 70px;
+            margin-left: -10px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    function Init(a)
+    {
+        for(let i=0;i<4;i++)
+        {
+            a.push(prompt(`请输入第${i+1}季度的数据：`))
+        }
+    }
+    function fn(a){
+        // 2.渲染数据，渲染柱子
+        document.write(`<div class="box">`)
+        // 循环四个柱子
+        for(let i=0;i<a.length;i++)
+        {
+            document.write(`
+            <div style="height: ${a[i]}px;">
+                <span>${a[i]}</span>
+                <h4>第${i+1}季度</h4>
+            </div>
+            `) 
+        }
+    }
+    // 1.声明数组并输入数据
+    let a=[]
+    Init(a)
+    fn(a)
+</script>
+
+</body>
+</html>
