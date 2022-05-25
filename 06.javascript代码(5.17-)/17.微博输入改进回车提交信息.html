@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        textarea{
+            width: 500px;
+            border: 1px solid skyblue;
+            font-size: 20px;
+            color:black;
+        }
+        .Weibo{
+            width: 500px;
+            margin: 0 auto;
+            color: skyblue;
+        }
+        .foot{
+            color: black;
+            float: right;
+        }
+        .foot span{
+            color: red;
+        } 
+        .text{
+            padding-top: 100px;
+            width: 500px;
+            margin: 0 auto;
+        }
+        ul{
+            display: block;
+            width: 500px;
+        }
+        li{
+            list-style: none;
+            display: block;
+            word-wrap: break-word;
+            width: 480px;
+            padding: 10px 10px;
+            margin: 10px 0; 
+            border: 1px solid skyblue;
+            border-radius:10px; 
+        }
+        .time{
+            text-align: right;
+            color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="Weibo">
+        有什么新鲜事想要告诉大家？<br>
+        <textarea placeholder="说点什么吧..." id="area" cols="30" rows="10" maxlength="200"></textarea>
+        <div class="foot">
+            <span>0</span>/200
+            <button>发布</button>
+        </div>
+    </div>
+    <div class="text">
+        <ul>
+        </ul>
+    </div>
+    <script>
+        let area=document.querySelector('#area')
+        let text=document.querySelector('.foot span')
+        let fontNum=0
+        area.addEventListener('input',function(){
+            fontNum=area.value.length
+            text.innerHTML=fontNum
+            if(fontNum!=0&&fontNum<200)
+                text.style.color='black'
+            else
+                text.style.color='red'
+        })
+        //按下回车生成留言信息
+        let btn=document.querySelector('button')
+        let ul=document.querySelector('ul')
+        function btn_display(){
+            if(area.value.trim()==''){
+                area.value=''
+                text.innerHTML=0
+                alert('内容不能为空')
+                return
+            } 
+            else{
+                let li=document.createElement('li')
+                ul.insertBefore(li,ul.children[0])
+                li.innerHTML=area.value
+                area.value=null
+                let date=new Date()
+                let time=document.createElement('div')
+                li.appendChild(time)
+                time.className='time'
+                let year=date.getFullYear()
+                let month=date.getMonth()
+                let day=date.getDay()
+                let hour=date.getHours()
+                let min=date.getMinutes()
+                time.innerHTML=year+'年'+month+'月'+day+'日'+hour+':'+min
+                text.innerHTML=0
+                text.style.color='red'
+            }
+        }
+        btn.addEventListener('click',btn_display)
+        area.addEventListener('keyup',function(e){
+            //按下回车键
+            console.log(e.key);
+            if(e.key=='Enter'){
+                btn_display()
+            }
+        })
+    </script>
+</body>
+</html>

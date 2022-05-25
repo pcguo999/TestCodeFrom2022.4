@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            color:white;
+            width:350px;
+            height: 200px;
+            background-color:skyblue;
+        }
+        .imgbox{
+            position: relative;
+            width: 320px;
+            height: 200px;
+        }
+        .imgbox img{
+            width: 300px;
+            height: 200px;
+        }
+        .chahao{
+            display: inline;
+            position: absolute;
+            border: 1px solid #000;
+            color: #000;
+        }
+        ul{
+            list-style: none;
+        }
+        .mi{
+            position: relative;
+            width: 200px;
+            margin: 100px auto;
+        }
+        .mi input{
+            width: 200px;
+            height: 50px;
+            padding: 0 10px;
+            font-size: 14px;
+            line-height: 50px;
+            border: 1px solid #e0e0e0;
+            outline: none;
+        }
+        .mi .search{
+            border: 10px solid #ff6700;
+        }
+        .resultList{
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            width: 200px;
+            border: 1px solid #ff6700;
+            border-top: 0;
+            background: #fff;
+        }
+        .resultList a{
+            display: block;
+            padding: 6px 15px;
+            font-size: 12px;
+            color: #424242;
+            text-decoration: none;
+        }
+        .resultList a:hover{
+            background-color: #eee;
+        }
+        .Weibo{
+            width: 500px;
+            margin: 0 auto;
+            color: skyblue;
+        }
+        textarea{
+            width: 500px;
+            border: 1px solid skyblue;
+            font-size: 20px;
+            color:black;
+        }
+        .foot{
+            color: black;
+            float: right;
+        }
+        .foot span{
+            color: red;
+        }
+        .FuXuan{
+            width: 500px;
+            border: 1px solid skyblue;
+            text-align: center;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        .FuXuan th{
+            background-color: skyblue;
+            color: white;
+        }
+        .FuXuan td{
+            border: 1px solid skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock"></div>
+    <script> 
+        let clockbox = document.querySelector('.clock');
+        function timebox(){
+            //提取当前时间
+            let now = new Date();
+            let year = now.getFullYear();
+            let month = now.getMonth()+1;//month是从0-11
+            let date = now.getDate();
+            let week = now.getDay();//星期是从0-6
+            let hour = now.getHours();
+            let minute = now.getMinutes();
+            let second = now.getSeconds();
+            let str = '当前时间是：'+ year + '年'+month+'月'+date+'日 '+toweek(week)+' '+hour+':'+minute+':'+second;
+            clockbox.innerHTML = str;
+        }
+        //提取星期，因为now.getDay();返回的是0-6
+        function toweek(n){
+            if(n==0) return '星期日'
+            else if(n==1) return '星期一'
+            else if(n==2) return '星期二'
+            else if(n==3) return '星期三'
+            else if(n==4) return '星期四'
+            else if(n==5) return '星期五'
+            else return '星期六'
+        }
+        timebox();
+        let clock=setInterval(timebox,1000);
+        clearInterval(clock);
+    </script>
+</body>
+</html>

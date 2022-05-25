@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        //不要每个li都注册事件，而是把事件委托给其父节点ul
+        let ul=document.querySelector('ul')
+        ul.addEventListener('click',function(e){
+            //即通过冒泡性，点击其子结点时会向上冒泡，发现其父节点有点击事件，则会执行
+            // alert('点击li')
+            //得到点击的当前元素,即会得到li
+            // console.log(e.target)
+            e.target.style.color='red'
+        })
+    </script>
+</body>
+</html>

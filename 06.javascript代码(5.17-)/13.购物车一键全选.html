@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            color:white;
+            width:350px;
+            height: 200px;
+            background-color:skyblue;
+        }
+        .imgbox{
+            position: relative;
+            width: 320px;
+            height: 200px;
+        }
+        .imgbox img{
+            width: 300px;
+            height: 200px;
+        }
+        .chahao{
+            display: inline;
+            position: absolute;
+            border: 1px solid #000;
+            color: #000;
+        }
+        ul{
+            list-style: none;
+        }
+        .mi{
+            position: relative;
+            width: 200px;
+            margin: 100px auto;
+        }
+        .mi input{
+            width: 200px;
+            height: 50px;
+            padding: 0 10px;
+            font-size: 14px;
+            line-height: 50px;
+            border: 1px solid #e0e0e0;
+            outline: none;
+        }
+        .mi .search{
+            border: 10px solid #ff6700;
+        }
+        .resultList{
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            width: 200px;
+            border: 1px solid #ff6700;
+            border-top: 0;
+            background: #fff;
+        }
+        .resultList a{
+            display: block;
+            padding: 6px 15px;
+            font-size: 12px;
+            color: #424242;
+            text-decoration: none;
+        }
+        .resultList a:hover{
+            background-color: #eee;
+        }
+        .Weibo{
+            width: 500px;
+            margin: 0 auto;
+            color: skyblue;
+        }
+        textarea{
+            width: 500px;
+            border: 1px solid skyblue;
+            font-size: 20px;
+            color:black;
+        }
+        .foot{
+            color: black;
+            float: right;
+        }
+        .foot span{
+            color: red;
+        }
+        .FuXuan{
+            width: 500px;
+            border: 1px solid skyblue;
+            text-align: center;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        .FuXuan th{
+            background-color: skyblue;
+            color: white;
+        }
+        .FuXuan td{
+            border: 1px solid skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <table class="FuXuan">
+            <tr>
+                <th><input type="checkbox" class="checkAll"><span class="QuanXuan">全选</span></th>
+                <th>商品</th>
+                <th>商家</th>
+                <th>价格</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>红米K40</td>
+                <td>小米</td>
+                <td>￥1999</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>OPPO Findx3</td>
+                <td>OPPO</td>
+                <td>￥3000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>Iphone13</td>
+                <td>苹果</td>
+                <td>￥6000</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        let QuanXuan=document.querySelector('.QuanXuan')
+        let checkAll=document.querySelector('.checkAll')
+        let check=document.querySelectorAll('.check')
+        checkAll.addEventListener('click',checkAllNum)
+        for(let i=0;i<check.length;i++)
+            check[i].addEventListener('click',checkNum)
+        function checkNum(){
+            for(let i=0;i<check.length;i++)
+            {
+                if(check[i].checked==false)
+                {//若有未选的直接退出
+                    QuanXuan.innerHTML='全选'
+                    checkAll.checked=false
+                    return
+                }
+            }
+            QuanXuan.innerHTML='取消'
+            checkAll.checked=true
+        }
+        function checkAllNum(){
+            if(checkAll.checked==true)
+            {
+                QuanXuan.innerHTML='取消'
+                for(let i=0;i<check.length;i++)
+                    check[i].checked=true
+            }
+            else
+            {
+                QuanXuan.innerHTML='全选'
+                for(let i=0;i<check.length;i++)
+                    check[i].checked=false
+            }
+        }
+    </script>
+</body>
+</html>

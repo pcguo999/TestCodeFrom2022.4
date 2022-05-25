@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            color:white;
+            width:350px;
+            height: 200px;
+            background-color:skyblue;
+        }
+        .imgbox{
+            position: relative;
+            width: 320px;
+            height: 200px;
+        }
+        .imgbox img{
+            width: 300px;
+            height: 200px;
+        }
+        .chahao{
+            display: inline;
+            position: absolute;
+            border: 1px solid #000;
+            color: #000;
+        }
+        ul{
+            list-style: none;
+        }
+        .mi{
+            position: relative;
+            width: 200px;
+            margin: 100px auto;
+        }
+        .mi input{
+            width: 200px;
+            height: 50px;
+            padding: 0 10px;
+            font-size: 14px;
+            line-height: 50px;
+            border: 1px solid #e0e0e0;
+            outline: none;
+        }
+        .mi .search{
+            border: 10px solid #ff6700;
+        }
+        .resultList{
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            width: 200px;
+            border: 1px solid #ff6700;
+            border-top: 0;
+            background: #fff;
+        }
+        .resultList a{
+            display: block;
+            padding: 6px 15px;
+            font-size: 12px;
+            color: #424242;
+            text-decoration: none;
+        }
+        .resultList a:hover{
+            background-color: #eee;
+        }
+        .Weibo{
+            width: 500px;
+            margin: 0 auto;
+            color: skyblue;
+        }
+        textarea{
+            width: 500px;
+            border: 1px solid skyblue;
+            font-size: 20px;
+            color:black;
+        }
+        .foot{
+            color: black;
+            float: right;
+        }
+        .foot span{
+            color: red;
+        }
+        .FuXuan{
+            width: 500px;
+            border: 1px solid skyblue;
+            text-align: center;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        .FuXuan th{
+            background-color: skyblue;
+            color: white;
+        }
+        .FuXuan td{
+            border: 1px solid skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <div class="b">
+            <img src="" class="image">
+            <div class="c"></div>
+        </div>
+    </div>
+    <script>
+        let image=document.querySelector('.image')
+        let father=image.parentNode
+        // //查找父节点
+        // console.log(father)
+        // //查找父节点的父节点
+        // console.log(father.parentNode)
+        //查找孩子节点，结果为：NodeList(5) [text, img.image, text, div.c, text]
+        console.log(father.childNodes)
+        //查找孩子节点，结果为：HTMLCollection(2) [img.image, div.c]
+        console.log(father.children)
+        //查找下一个兄弟节点，结果为：<div class="c"></div>
+        let next=image.nextElementSibling
+        console.log(next)
+        //查找上一个兄弟节点，结果为：<img src=(未知) class="image">
+        console.log(next.previousElementSibling)
+        //1.创建标签
+        let d=document.createElement('div')
+        //添加class
+        d.className='d'
+        //2.追加到父元素最后一个子元素后面
+        let b=document.querySelector('.b')
+        b.appendChild(d)
+        d.innerHTML='class=d'
+        //3.追加到父元素某一个子元素前面
+        b.insertBefore(d,b.children[0])
+        //克隆节点
+        let newb=b.cloneNode(true)
+        let c=document.querySelector('.c')
+        c.appendChild(newb)
+        document.body.appendChild(newb)
+        c.removeChild(b)
+    </script>
+</body>
+</html>

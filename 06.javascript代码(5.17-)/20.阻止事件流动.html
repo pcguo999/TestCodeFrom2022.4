@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            margin: 100px auto;
+            width: 500px;
+            height: 500px;
+            background-color: skyblue;
+        }
+        .son{
+            width: 200px;
+            height: 200px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        let f=document.querySelector('.father')
+        let s=document.querySelector('.son')
+        f.addEventListener('click',function(e){
+            alert('father')
+            //阻止流动 Propagation：传播
+            e.stopPropagation()
+        })
+        s.addEventListener('click',function(e){
+            alert('son')
+            //阻止流动
+            e.stopPropagation()
+        })
+    </script>
+</body>
+</html>

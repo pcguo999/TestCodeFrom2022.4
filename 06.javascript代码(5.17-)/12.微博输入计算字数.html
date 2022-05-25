@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            color:white;
+            width:350px;
+            height: 200px;
+            background-color:skyblue;
+        }
+        .imgbox{
+            position: relative;
+            width: 320px;
+            height: 200px;
+        }
+        .imgbox img{
+            width: 300px;
+            height: 200px;
+        }
+        .chahao{
+            display: inline;
+            position: absolute;
+            border: 1px solid #000;
+            color: #000;
+        }
+        ul{
+            list-style: none;
+        }
+        .mi{
+            position: relative;
+            width: 200px;
+            margin: 100px auto;
+        }
+        .mi input{
+            width: 200px;
+            height: 50px;
+            padding: 0 10px;
+            font-size: 14px;
+            line-height: 50px;
+            border: 1px solid #e0e0e0;
+            outline: none;
+        }
+        .mi .search{
+            border: 10px solid #ff6700;
+        }
+        .resultList{
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            width: 200px;
+            border: 1px solid #ff6700;
+            border-top: 0;
+            background: #fff;
+        }
+        .resultList a{
+            display: block;
+            padding: 6px 15px;
+            font-size: 12px;
+            color: #424242;
+            text-decoration: none;
+        }
+        .resultList a:hover{
+            background-color: #eee;
+        }
+        .Weibo{
+            width: 500px;
+            margin: 0 auto;
+            color: skyblue;
+        }
+        textarea{
+            width: 500px;
+            border: 1px solid skyblue;
+            font-size: 20px;
+            color:black;
+        }
+        .foot{
+            color: black;
+            float: right;
+        }
+        .foot span{
+            color: red;
+        }
+        .FuXuan{
+            width: 500px;
+            border: 1px solid skyblue;
+            text-align: center;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        .FuXuan th{
+            background-color: skyblue;
+            color: white;
+        }
+        .FuXuan td{
+            border: 1px solid skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="Weibo">
+        有什么新鲜事想要告诉大家？<br>
+        <textarea placeholder="说点什么吧..." id="area" cols="30" rows="10" maxlength="200"></textarea>
+        <div class="foot">
+            <span>0</span>/200
+            <button>发布</button>
+        </div>
+    </div>
+    <script>
+        let area=document.querySelector('#area')
+        let text=document.querySelector('.foot span')
+        let fontNum=0
+        area.addEventListener('input',function(){
+            fontNum=area.value.length
+            text.innerHTML=fontNum
+            if(fontNum!=0&&fontNum<200)
+                text.style.color='black'
+            else
+                text.style.color='red'
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            margin: 0 auto;
+            text-align: center;
+             /* 合并:表示表格的两边框合并为一条。 */
+            border-collapse: collapse;
+        }
+
+        table,th,td{
+            border: 1px solid black; 
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.write('要输出的内容')
+        alert('Hello World')
+        console.log('console.log要输入的内容')
+        prompt('请输入姓名：')
+
+        let age=19
+        age=prompt('请输入年龄')
+        document.write('你的年龄为：'+age)
+        let name='张三'
+        document.write(`我的姓名：${name}`)
+        document.write(`<span style='color:red'>Hello</span>`)
+        x=1
+        document.write(typeof(x))
+        x='10'
+        document.write(typeof(+x))
+        document.write(+x + 10)
+        document.write(parseInt(`100px`))
+        100
+        age=18
+        document.write(String(age))
+        document.write(age.toString())
+        //转换成二进制
+        document.write(age.toString(2))
+    </script>
+</body>
+</html>

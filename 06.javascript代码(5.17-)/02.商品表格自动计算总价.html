@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            margin: 0 auto;
+            text-align: center;
+             /* 合并:表示表格的两边框合并为一条。 */
+            border-collapse: collapse;
+        }
+
+        table,th,td{
+            border: 1px solid black; 
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //1.输入数据
+    let name = prompt('请输入名称：')
+    let price = +prompt('请输入价格：')//转换成数字类型
+    let num = +prompt('请输入数量：')
+    let address = prompt('请输入收货地址：')
+    //计算总价
+    let total=price * num
+    //渲染表格 填充数据
+    document.write(`
+    <table>
+        <tr>
+            <th colspan="5">订单付款确认页面</th>
+        </tr>
+        <tr>
+            <td>商品名</td>
+            <td>商品价格</td>
+            <td>商品数量</td>
+            <td>总价</td>
+            <td>收获地址</td>
+        </tr>
+        <tr>
+            <td>${name}</td>
+            <td>${price}元</td>
+            <td>${num}个</td>
+            <td>${total}元</td>
+            <td>${address}</td>
+        </tr>
+    </table>
+    `)
+</script>  
+</body>
+</html>
