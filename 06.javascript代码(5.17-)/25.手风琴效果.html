@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 1000px;
+            margin: 0 auto;
+            font-size:0;
+            /* 消除img之间的空隙 */
+        }
+        img{
+            width: 200px;
+            height:500px
+        }
+        .show{
+            width: 800px;
+        }
+        .hidden{
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="image/1.jpg">
+        <img src="image/2.jpg">
+        <img src="image/3.jpg">
+        <img src="image/4.jpg">
+        <img src="image/5.jpg">
+    </div>
+    <script>
+        let imglist=document.querySelectorAll('img')
+        // imglist[0].classList.add('show')
+        for(let i=0;i<imglist.length;i++)
+        {
+            //鼠标经过
+            imglist[i].addEventListener('mouseenter',function(){
+                for(let j=0;j<imglist.length;j++)
+                    imglist[j].classList.add('hidden')
+                this.classList.remove('hidden')
+                this.classList.add('show')
+            })
+            //鼠标离开
+            // imglist[i].addEventListener('mouseleave',function(){
+            //     for(let j=0;j<imglist.length;j++){
+            //         imglist[j].classList.remove('show')
+            //         imglist[j].classList.remove('hidden')
+            //     } 
+            // })
+        }
+    </script>
+</body>
+</html>

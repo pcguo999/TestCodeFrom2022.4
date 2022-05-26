@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        input{
+            width: 70px;
+            border: 1px solid skyblue;
+        }
+        select{
+            border: 1px solid skyblue;
+        }
+        button{
+            width: 40px;
+            color: white;
+            background-color:teal;
+            border-radius: 5px;
+        }
+        h2{
+            margin-top: 20px;
+            text-align: center;
+        }
+        table{
+            text-align: center;
+            width: 700px;
+            border: 1px solid skyblue;
+            border-collapse: collapse;
+        }
+        tr,th,td{
+            height: 50px;
+            border: 1px solid teal;
+        }
+        th{
+            background-color: skyblue;
+        }
+        tbody tr:hover{
+            background-color: #eee;
+        } 
+        a {
+            text-decoration: none;
+            color: teal;
+        }
+        .add{
+            width: 700px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="add">
+        <h2>新增学生</h2><br>
+        姓名：<input type="text" class="name">
+        年龄：<input type="text" class="age">
+        性别：<select name="gender" class="gender">
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+        薪资：<input type="text" class="salary">
+        就业城市：<input type="text" class="city">
+        <button class="add_btn">录入</button>
+        <h2>学生信息表</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>学号</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>性别</th>
+                    <th>薪资</th>
+                    <th>就业城市</th>
+                    <th>删除</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <ul>
+    </ul>
+    <script>
+        let student=[
+            {id:1001,name:'张三',age:20,gender:'男',salary:'15',city:'北京'}
+        ]
+        let tbody=document.querySelector('tbody')
+        //根据数组进行渲染
+        function showTable(){
+            //先删除以前的数据
+            tbody.innerHTML=''
+            //再渲染新的数据
+            for(let i=0;i<student.length;i++)
+            {
+                //创建tr
+                let tr=document.createElement('tr')
+                //tr内的内容
+                tr.innerHTML=`
+                    <td>${student[i].id}</td>
+                    <td>${student[i].name}</td>
+                    <td>${student[i].age}</td>
+                    <td>${student[i].gender}</td>
+                    <td>${student[i].salary}</td>
+                    <td>${student[i].city}</td>
+                    <td><a href="#" id="${i}">删除</a></td>
+                `
+                //给删除添加id以方便删除时获取id
+                tbody.appendChild(tr)
+            }
+        }
+        showTable()
+        
+        //添加学生
+        //获取提交按钮
+        let add_btn=document.querySelector('.add_btn')
+        //获取各个表单元素
+        let name=document.querySelector('.name')
+        let age=document.querySelector('.age')
+        let gender=document.querySelector('.gender')
+        let salary=document.querySelector('.salary')
+        let city=document.querySelector('.city')
+        //添加点击提交事件
+        add_btn.addEventListener('click',function(){
+            //若非空则添加到数组
+            if(Empty(name.value)&&Empty(age.value)&&Empty(gender.value)&&Empty(salary.value)&&Empty(city.value)){
+                let stuId
+                if(student.length!=0)
+                    stuId=student[student.length-1].id+1
+                else//若数组为空，则学生学号从1001开始
+                    stuId=1001
+                student.push({
+                    id: stuId,//最后一个元素的Id+1
+                    name: name.value,
+                    age: age.value,
+                    gender: gender.value,
+                    salary: salary.value,
+                    city: city.value
+                })
+                //重新渲染函数
+                showTable()
+                //将表单恢复为空
+                name.value=age.value=salary.value=city.value=''
+                gender.value='男'
+            }
+        }
+        )
+        //判断input非空，之后可以使用正则
+        function Empty(value){
+            if(value.trim()!='') return true
+            else{
+                alert('添加学员数据不可为空')
+                return false
+            }    
+        }
+        
+        //事件委托进行删除
+        let del=document.querySelector('tbody')
+        del.addEventListener('click',function(e){
+            // console.log(e.target.tagName)
+            // 点击的标签名，当为A时执行
+            if(e.target.tagName=='A'){
+                //获取id，比如点击第一个，则返回0，即a中id保存的是其在数组中的位置
+                //console.log(e.target.id);
+                student.splice(e.target.id,1)
+                //重新渲染页面
+                showTable()
+            }   
+        })
+    </script>
+</body>
+</html>
