@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //等整个页面所有元素加载完成后执行，并且这个事件可以放到任何地方，因为是要等所有资源加载完毕才执行
+        window.addEventListener('load',function(){
+            console.log('222');
+        })
+        //DOMContentLoaded监听当初始HTML文档被完全加载和解析之后触发
+        document.addEventListener('DOMContentLoaded',function(){
+            console.log('333');
+        })
+    </script>
+</body>
+</html>

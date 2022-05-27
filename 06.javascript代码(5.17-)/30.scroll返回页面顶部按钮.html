@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            text-decoration: none;
+            color:black;
+            font-size: 35px;
+        }
+        .return{
+            background-color: aquamarine;
+            border-radius: 50px;
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            right:10px;
+            bottom: 10px;
+            text-align: center;
+        }
+        .text{
+        width: 100px;
+        height:2000px;
+        background-color:skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="text"></div>
+    <div class="return"><a href="javascript:">⬆</a></div>
+    <script>
+        let ret=document.querySelector('.return')
+        //页面滚动事件
+        window.addEventListener('scroll',function(){
+            let num=document.documentElement.scrollTop
+            console.log(num)
+            if(num>=500)
+                ret.style.display='block'
+            else
+                ret.style.display='none'
+        })
+        //点击返回事件
+        ret.addEventListener('click',function(){
+            document.documentElement.scrollTop=0
+        })
+    </script>
+</body>
+</html>
