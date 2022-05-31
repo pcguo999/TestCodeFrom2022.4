@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://www.baidu.com">登录成功，<span style="color: red;">5</span>秒之后跳转页面至百度</a>
+    <script>
+        let span=document.querySelector('span')
+        let count=5
+        let Timer=setInterval(function(){
+            count--
+            span.innerHTML=`${count}`
+            if(count==0){
+                clearInterval(Timer)
+                location.href='http://www.baidu.com'
+            }
+        }, 1000)
+    </script>
+</body>
+</html>

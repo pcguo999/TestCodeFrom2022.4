@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.addEventListener('resize',function(){
+            let w=document.documentElement.clientWidth
+            if(w<200)   document.body.style.backgroundColor='skyblue'
+            else if(w<400)   document.body.style.backgroundColor='pink'
+            else if(w<800)   document.body.style.backgroundColor='red'
+            else   document.body.style.backgroundColor='green'
+            console.log('页面宽度：'+document.documentElement.clientWidth);
+            console.log('页面高度：'+document.documentElement.clientHeight);
+        })
+    </script>
+</body>
+</html>
